@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #ccc;
+    padding: 0;
+    margin: 0;
+}
+form#commentForm {
+    float:left;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    background-color: #fff;
+    padding: 15px;
+    margin: 20px;
+}
+form#commentForm fieldset { border: 1px solid #336699;}
+form#commentForm legend {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    color: #336699;
+    padding: 0 5px;
+}
+form#commentForm label {
+    float: left;
+    display: block;
+    width: 100%;
+    max-width: 140px;
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.0em;
+    line-height: 30px;
+    color: #336699;
+    text-align: left;
+    padding: 0;
+}
+form#commentForm input {
+    clear: right;
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: 30px;
+    border: 1px solid #336699;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.0em;
+    color: #2e2e2e;
+    padding: 0 5px;
+    margin-bottom: 10px;
+}
+form#commentForm label.textBox {
+    clear: both;
+    text-align: left;
+    font-size: 1.2em;
+    padding: 0;
+    margin-top: 20px;
+}
+form#commentForm textarea {
+    resize: none;
+    border: 1px solid #336699;
+    outline: none;
+    clear: both;
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.0em;
+    line-height: 1.5;
+    color: #2e2e2e;
+    padding: 10px;
+}
+form#commentForm input[type=submit] {
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 2px 2px 3px rgba(46, 46, 46, 0.4);
+    -webkit-box-shadow: 2px 2px 3px rgba(46, 46, 46, 0.4);
+    box-shadow: 2px 2px 3px rgba(46, 46, 46, 0.4);
+    outline: none;
+    border: none;
+    float: right;
+    display: block;
+    width: 100%;
+    max-width: 120px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #4484CE;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.0em;
+    color: #fff;
+    text-transform: capitalize;
+    margin-top: 20px;
+}
+form#commentForm input[type=submit]:hover {
+    background-color: #2e2e2e;
+    color: #ffa;
+}
+
+div#articles {
+    float: left;
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    background-color: lightblue;
+    padding: 10px;
+    margin: 20px 10px;
+}
+
+div#articles .article {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 580px;
+    height: auto;
+    background-color: #fff;
+    padding: 5px 20px;
+    margin: 10px auto;
+}
+
+div#articles .article h1 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 1.8em;
+    line-height: 1.0;
+}
+
+div#articles span {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size:0.8em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+div#articles .article p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
