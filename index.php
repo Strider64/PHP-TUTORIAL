@@ -48,7 +48,7 @@ if (isset($submit) && $submit === "submit") {
  * Read from a database table is pretty straight forward and the only real tough part of it is writing the 
  * query correctly. Visting https://www.mysql.com/ will help you understand MySQl.
  * PDO can better be understand by visiting https://phpdelusions.net/pdo and I highly recommend the website for it
- * has helped me to under pdo better. One word of advice and that is to ALWAYS use PREPARED statements for
+ * has helped me to understand pdo better. One word of advice and that is to ALWAYS use PREPARED statements for
  * security reasons. I also recommend staying up on on PHP, PDO and MYSQL, for all tutorials will eventually become
  * outdated (even this one).
  */
