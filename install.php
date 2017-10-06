@@ -2,7 +2,7 @@
 require_once 'config.php'; // Configuration file for turning error reporting and connection strings to database:
 
 /*
- * I think the following is pretty self explanatory and I think think the index.php file helps you on how to insert
+ * I think the following is pretty self explanatory and the index.php file helps you on how to insert and read 
  * data into a database table better.
  */
 try {
