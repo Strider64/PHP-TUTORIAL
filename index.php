@@ -55,8 +55,8 @@ if (isset($submit) && $submit === "submit") {
 
 function readBlog($pdo = NULL) {
     $query = 'SELECT id, title, comment,  DATE_FORMAT(date_added, "%W, %M %e, %Y") as display_date, date_added as my_date FROM myBlog ORDER BY my_date DESC';
-    $stmt = $pdo->query($query); // Prepare the query:
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $pdo->query($query); // set the query:
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all of the rows:
     return $data;
 }
 
