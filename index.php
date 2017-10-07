@@ -55,8 +55,7 @@ if (isset($submit) && $submit === "submit") {
 
 function readBlog($pdo = NULL) {
     $query = 'SELECT id, title, comment,  DATE_FORMAT(date_added, "%W, %M %e, %Y") as display_date, date_added as my_date FROM myBlog ORDER BY my_date DESC';
-    $stmt = $pdo->prepare($query); // Prepare the query:
-    $stmt->execute(); // Execute:
+    $stmt = $pdo->query($query); // Prepare the query:
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $data;
 }
@@ -69,7 +68,7 @@ $rows = readBlog($pdo);
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>PHP Comment Tutorial</title>
+        <title>PHP, PDO &amp; MySQL Tutorial</title>
         <!--
         I decided to make an external stylesheet to keep the code down. The stylesheet stays in the same folder
         as the other files. Feel free to use this file or create your own CSS.
@@ -81,7 +80,6 @@ $rows = readBlog($pdo);
             <h1>PHP, PDO and MySQL Tutorial</h1>
         </div>
         <div class="container bg-color">
-
             <form id="commentForm" action="" method="post">
                 <fieldset>
                     <legend>Comment Form</legend>
