@@ -1,24 +1,21 @@
 <?php
 require_once 'config.php'; // Configuration file for turning error reporting and connection strings to database:
-
+require_once 'php_pdo_functions.inc.php'; // PDO functions and connection:
 /*
  * The first thing to do is to make sure you have a database named myCMS and a database table named myBlog.
  * You can run the install file that will create the database and database table by running install.php if you want 
  * or you can create the database and database table yourself. 
  */
 
+
 /*
- * Establish a database connection.
+ * Read from a database table is pretty straight forward and the only real tough part of it is writing the 
+ * query correctly. Visting https://www.mysql.com/ will help you understand MySQl.
+ * PDO can better be understand by visiting https://phpdelusions.net/pdo and I highly recommend the website for it
+ * has helped me to understand pdo better. One word of advice and that is to ALWAYS use PREPARED statements for
+ * security reasons. I also recommend staying up on on PHP, PDO and MYSQL, for all tutorials will eventually become
+ * outdated (even this one). I have relocated all the pdo functions and connection over to php_pdo_functions.inc.php file.
  */
-$db_options = [
-    /* important! use actual prepared statements (default: emulate prepared statements) */
-    PDO::ATTR_EMULATE_PREPARES => false
-    /* throw exceptions on errors (default: stay silent) */
-    , PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    /* fetch associative arrays (default: mixed arrays)    */
-    , PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-];
-$pdo = new PDO('mysql:host=' . DATABASE_HOST . ';dbname=' . DATABASE_NAME . ';charset=utf8', DATABASE_USERNAME, DATABASE_PASSWORD, $db_options);
 
 /*
  * Check to see if user has clicked on the submit button.
@@ -29,35 +26,15 @@ if (isset($submit) && $submit === "submit") {
     /*
      * Grab User's Responses from Form.
      */
-    $title = htmlspecialchars($_POST['title']);
-    $comment = htmlspecialchars($_POST['comment']);
-    /*
-     * Insert Into Database Table myBlog.
-     */
-    $query = 'INSERT INTO myBlog(title, comment, date_added) VALUES (:title, :comment, NOW())';
-    $stmt = $pdo->prepare($query);
-    $result = $stmt->execute([':title' => $title, ':comment' => $comment]);
+    $data['title'] = htmlspecialchars($_POST['title']);
+    $data['comment'] = htmlspecialchars($_POST['comment']);
+
+    $result = createBlog($data, $pdo);
 
     if ($result) {
         header("Location: index.php");
         exit();
     }
-}
-
-/*
- * Read from a database table is pretty straight forward and the only real tough part of it is writing the 
- * query correctly. Visting https://www.mysql.com/ will help you understand MySQl.
- * PDO can better be understand by visiting https://phpdelusions.net/pdo and I highly recommend the website for it
- * has helped me to understand pdo better. One word of advice and that is to ALWAYS use PREPARED statements for
- * security reasons. I also recommend staying up on on PHP, PDO and MYSQL, for all tutorials will eventually become
- * outdated (even this one).
- */
-
-function readBlog($pdo = NULL) {
-    $query = 'SELECT id, title, comment,  DATE_FORMAT(date_added, "%W, %M %e, %Y") as display_date, date_added as my_date FROM myBlog ORDER BY my_date DESC';
-    $stmt = $pdo->query($query); // set the query:
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all of the rows:
-    return $data;
 }
 
 $rows = readBlog($pdo);
