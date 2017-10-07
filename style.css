@@ -6,7 +6,39 @@ body {
     padding: 0;
     margin: 0;
 }
-form#commentForm {
+.container {
+    /* * For IE 6/7 only * Include this rule to trigger hasLayout and contain floats. */
+    *zoom: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.container:after {
+    clear: both;
+}
+.container:before,
+.container:after {
+    content: " ";
+    display: table;
+}
+#heading {
+    background-color: #FFB293;
+    height: 100px;
+    border-bottom: 15px solid #fff;
+    margin-top: 10px;
+}
+#heading h1 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 2.4em;
+    text-align: center;
+}
+.bg-color {
+    background-color: #E8DDD5;
+}
+#commentForm {
     float:left;
     display: block;
     width: 100%;
@@ -16,11 +48,11 @@ form#commentForm {
     padding: 15px;
     margin: 20px;
 }
-form#commentForm fieldset { border: 1px solid #336699;}
+form#commentForm fieldset { border: 1px solid #C8400B;}
 form#commentForm legend {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
-    color: #336699;
+    color: #C8400B;
     padding: 0 5px;
 }
 form#commentForm label {
@@ -32,7 +64,7 @@ form#commentForm label {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.0em;
     line-height: 30px;
-    color: #336699;
+    color: #C8400B;
     text-align: left;
     padding: 0;
 }
@@ -42,7 +74,7 @@ form#commentForm input {
     width: 100%;
     max-width: 280px;
     height: 30px;
-    border: 1px solid #336699;
+    border: 1px solid #C8400B;
     outline: none;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.0em;
@@ -59,13 +91,13 @@ form#commentForm label.textBox {
 }
 form#commentForm textarea {
     resize: none;
-    border: 1px solid #336699;
+    border: 1px solid #C8400B;
     outline: none;
     clear: both;
     display: block;
     width: 100%;
     max-width: 360px;
-    height: 300px;
+    height: 250px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.0em;
     line-height: 1.5;
@@ -87,7 +119,7 @@ form#commentForm input[type=submit] {
     max-width: 120px;
     height: 40px;
     cursor: pointer;
-    background-color: #4484CE;
+    background-color: #C8400B;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.0em;
     color: #fff;
@@ -95,39 +127,40 @@ form#commentForm input[type=submit] {
     margin-top: 20px;
 }
 form#commentForm input[type=submit]:hover {
-    background-color: #2e2e2e;
-    color: #ffa;
+    background-color: #553752;
+    color: #fff;
 }
 
 div#articles {
     float: left;
     display: block;
     width: 100%;
-    max-width: 600px;
+    max-width: 720px;
     height: auto;
-    background-color: lightblue;
-    padding: 10px;
-    margin: 20px 10px;
+    background-color: #553752;
+    padding: 5px 20px;
+    margin: 20px;
 }
 
 div#articles .article {
     position: relative;
     display: block;
     width: 100%;
-    max-width: 580px;
+    max-width: 700px;
     height: auto;
     background-color: #fff;
-    padding: 5px 20px;
-    margin: 10px auto;
+    padding: 20px;
+    margin: 20px auto;
 }
 
-div#articles .article h1 {
+div#articles .article h2 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-size: 1.8em;
     line-height: 1.0;
+    color: #553752;
 }
 
-div#articles span {
+div#articles .article span {
     position: absolute;
     top: 10px;
     right: 20px;
@@ -135,10 +168,33 @@ div#articles span {
     font-size:0.8em;
     font-style: italic;
     font-weight: bold;
+    color: #553752;
+}
+
+div#articles .article a {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    display: block;
+    width: 100%;
+    max-width: 80px;
+    height: 30px;
+    background-color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    line-height: 30px;
+    color: #553752;
+    text-align: center;
+    text-decoration: none;
+}
+div#articles .article a:hover {
+    background-color: #553752;
+    color: #fff;
 }
 
 div#articles .article p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     line-height: 1.5;
+    color: #553752;
 }

@@ -52,6 +52,7 @@ if (isset($submit) && $submit === "submit") {
  * security reasons. I also recommend staying up on on PHP, PDO and MYSQL, for all tutorials will eventually become
  * outdated (even this one).
  */
+
 function readBlog($pdo = NULL) {
     $query = 'SELECT id, title, comment,  DATE_FORMAT(date_added, "%W, %M %e, %Y") as display_date, date_added as my_date FROM myBlog ORDER BY my_date DESC';
     $stmt = $pdo->prepare($query); // Prepare the query:
@@ -76,26 +77,33 @@ $rows = readBlog($pdo);
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <form id="commentForm" action="" method="post">
-            <fieldset>
-                <legend>Comment Form</legend>
-                <label for="title">Title</label>
-                <input id="title" type="text" name="title" value="">
-                <label class="textBox" for="comment">Comment</label>
-                <textarea id="comment" name="comment" placeholder="Enter Comment Here..."></textarea>
-                <input type="submit" name="submit" value="submit">
-            </fieldset>
-        </form>
-        <div id="articles">
-            <?php
-            foreach ($rows as $row) {
-                echo '<div class="article">' . "\n";
-                echo "<h1>" . $row['title'] . "</h1>\n";
-                echo '<span class="date">' . $row['display_date'] . '</span>' . "\n";
-                echo "<p>" . $row['comment'] . "</p>\n";
-                echo "</div>\n";
-            }
-            ?>                               
+        <div id="heading" class="container">
+            <h1>PHP, PDO and MySQL Tutorial</h1>
+        </div>
+        <div class="container bg-color">
+
+            <form id="commentForm" action="" method="post">
+                <fieldset>
+                    <legend>Comment Form</legend>
+                    <label for="title">Title</label>
+                    <input id="title" type="text" name="title" value="" autofocus tabindex="1">
+                    <label class="textBox" for="comment">Comment</label>
+                    <textarea id="comment" name="comment" tabindex="2"></textarea>
+                    <input type="submit" name="submit" value="submit" tabindex="3">
+                </fieldset>
+            </form>
+            <div id="articles">
+                <?php
+                foreach ($rows as $row) {
+                    echo '<div class="article">' . "\n";
+                    echo "<h2>" . $row['title'] . "</h2>\n";
+                    echo '<span class="date">' . $row['display_date'] . '</span>' . "\n";
+                    echo '<a class="anchor-tag" href="edit.php?id=' . $row['id'] . '">Edit</a>' . "\n";
+                    echo "<p>" . $row['comment'] . "</p>\n";
+                    echo "</div>\n";
+                }
+                ?>                               
+            </div>
         </div>
     </body>
 </html>
