@@ -1,6 +1,7 @@
 <?php
 require_once 'config.php'; // Configuration file for turning error reporting and connection strings to database:
 require_once 'php_pdo_functions.inc.php'; // PDO functions and connection:
+require_once 'login_functions.php';
 /*
  * The first thing to do is to make sure you have a database named myCMS and a database table named myBlog.
  * You can run the install file that will create the database and database table by running install.php if you want 
@@ -45,11 +46,13 @@ $rows = readBlog($pdo);
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <title>PHP, PDO &amp; MySQL Tutorial</title>
         <!--
         I decided to make an external stylesheet to keep the code down. The stylesheet stays in the same folder
         as the other files. Feel free to use this file or create your own CSS.
         -->
+        <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>

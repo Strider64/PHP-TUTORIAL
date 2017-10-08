@@ -8,8 +8,8 @@ require_once 'config.php'; // Configuration file for turning error reporting and
 try {
     $conn = new PDO('mysql:host=' . DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "CREATE DATABASE IF NOT EXISTS myCMS";
-    $conn->exec($sql);
+//    $sql = "CREATE DATABASE IF NOT EXISTS myCMS";
+//    $conn->exec($sql);
     $sql = "use myCMS";
     $conn->exec($sql);
     $sql = "CREATE TABLE IF NOT EXISTS myBlog (

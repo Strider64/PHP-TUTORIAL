@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php'; // Configuration file for turning error reporting and connection strings to database:
 require_once 'php_pdo_functions.inc.php'; // PDO functions and connection:
-
+require_once 'login_functions.php';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 if (isset($id)) {
@@ -20,9 +20,9 @@ if (isset($submit) && $submit === "submit") {
     $data['id'] = htmlspecialchars($_POST['id']);
     $data['title'] = htmlspecialchars($_POST['title']);
     $data['comment'] = htmlspecialchars($_POST['comment']);
-   
+
     $result = updateBlog($data, $pdo);
-    
+
     if ($result) {
         header("Location: index.php");
         exit();
@@ -33,11 +33,13 @@ if (isset($submit) && $submit === "submit") {
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <title>Edit Page</title>
         <!--
         I decided to make an external stylesheet to keep the code down. The stylesheet stays in the same folder
         as the other files. Feel free to use this file or create your own CSS.
         -->
+        <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
