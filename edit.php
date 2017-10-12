@@ -1,7 +1,7 @@
 <?php
-require_once 'config.php'; // Configuration file for turning error reporting and connection strings to database:
-require_once 'php_pdo_functions.inc.php'; // PDO functions and connection:
-require_once 'login_functions.php';
+require_once 'lib/includes/config.php'; // Configuration file for turning error reporting and connection strings to database:
+require_once 'lib/functions/php_pdo_functions.inc.php'; // PDO functions and connection:
+
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 if (isset($id)) {
@@ -39,13 +39,11 @@ if (isset($submit) && $submit === "submit") {
         I decided to make an external stylesheet to keep the code down. The stylesheet stays in the same folder
         as the other files. Feel free to use this file or create your own CSS.
         -->
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="lib/css/reset.css">
+        <link rel="stylesheet" href="lib/css/style.css">
     </head>
     <body>
-        <div id="heading" class="container">
-            <h1>PHP, PDO and MySQL Tutorial</h1>
-        </div>
+        <?php require_once 'lib/includes/heading.inc.php'; ?>
         <div class="container bg-color">
             <form id="commentForm" action="" method="post">
                 <fieldset>

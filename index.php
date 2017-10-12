@@ -1,7 +1,7 @@
 <?php
-require_once 'config.php'; // Configuration file for turning error reporting and connection strings to database:
-require_once 'php_pdo_functions.inc.php'; // PDO functions and connection:
-require_once 'login_functions.php';
+require_once 'lib/includes/config.php'; // Configuration file for turning error reporting and connection strings to database:
+require_once 'lib/functions/php_pdo_functions.inc.php'; // PDO functions and connection:
+
 /*
  * The first thing to do is to make sure you have a database named myCMS and a database table named myBlog.
  * You can run the install file that will create the database and database table by running install.php if you want 
@@ -39,7 +39,11 @@ if (isset($submit) && $submit === "submit") {
 }
 
 $rows = readBlog($pdo);
-
+if (isset($_SESSION['user']) && $_SESSION['user']['security'] === 'public') {
+    $cmsON = TRUE;
+} else {
+    $cmsON = FALSE;
+}
 //echo "<pre>" . print_r($rows, 1) . "</pre>";
 ?>
 <!DOCTYPE html>
@@ -52,24 +56,29 @@ $rows = readBlog($pdo);
         I decided to make an external stylesheet to keep the code down. The stylesheet stays in the same folder
         as the other files. Feel free to use this file or create your own CSS.
         -->
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="lib/css/reset.css">
+        <link rel="stylesheet" href="lib/css/style.css">
     </head>
     <body>
-        <div id="heading" class="container">
-            <h1>PHP, PDO and MySQL Tutorial</h1>
-        </div>
+        <?php require_once 'lib/includes/heading.inc.php'; ?>
         <div class="container bg-color">
-            <form id="commentForm" action="" method="post">
-                <fieldset>
-                    <legend>Comment Form</legend>
-                    <label for="title">Title</label>
-                    <input id="title" type="text" name="title" value="" autofocus tabindex="1">
-                    <label class="textBox" for="comment">Comment</label>
-                    <textarea id="comment" name="comment" tabindex="2"></textarea>
-                    <input type="submit" name="submit" value="submit" tabindex="3">
-                </fieldset>
-            </form>
+            <?php if ($cmsON) { ?>
+                <form id="commentForm" action="" method="post">
+                    <fieldset>
+                        <legend>Comment Form</legend>
+                        <label for="title">Title</label>
+                        <input id="title" type="text" name="title" value="" autofocus  tabindex="1">
+                        <label class="textBox" for="comment">Comment</label>
+                        <textarea id="comment" name="comment" tabindex="2"></textarea>
+                        <input type="submit" name="submit" value="submit" tabindex="3">
+                    </fieldset>
+                </form>
+            <?php } else { ?>
+            <div id="cmsInfo">
+                <h1>PDO &amp; MySQL Tutorial Information</h1>
+                <p>You must be registered and login to access the full Content Management System Demo. I'm writing this PHP Tutorial in procedural style with the exception of PDO which forces a person to write it in Object-Oriented Programming Style. This tutorial will show you how to add, update, read and delete content to a MySQL database using PHP PDO.</p>
+            </div>
+            <?php } ?>
             <div id="articles">
                 <?php
                 foreach ($rows as $row) {
