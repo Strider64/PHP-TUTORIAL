@@ -1,0 +1,394 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #ccc;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+}
+
+.container {
+    /* * For IE 6/7 only * Include this rule to trigger hasLayout and contain floats. */
+    *zoom: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+.container:after {
+    clear: both;
+}
+.container:before,
+.container:after {
+    content: " ";
+    display: table;
+}
+/* SMARTPHONE STYLING */
+@media only screen and (max-width: 480px) {
+}
+/* TABLET STYLING */
+@media only screen and (min-width: 481px) and (max-width: 999px) {
+
+}
+/* PC STYLING */
+@media only screen and (min-width: 1000px) {
+    /* HEADING CSS */
+    #heading {
+        position: relative;
+        background-color: #553752;
+        height: 140px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    #heading h1 {
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        font-size: 2.4em;
+        line-height: 60px;
+        color: #fff;
+        text-align: left;
+    }
+    form#login {
+        position: absolute;
+        right: 20px;
+        top: 80px;
+        width: 100%;
+        max-width: 550px;
+        background-color: #fff;
+        padding: 10px 5px;
+    }
+
+    form#login label {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.8em;
+    }
+    form#login input {
+        outline: none;
+        width: 100%;
+        max-width: 100px;
+        background-color: #FFECF4;
+        margin-right: 5px;
+    }
+    form#login input[type=submit] {
+        cursor: pointer;
+        outline: none;
+        border: none;
+        width: 100%;
+        max-width: 60px;
+        background-color: #553752;
+        color: #fff;
+        text-transform: capitalize;
+    }
+    form#login input[type=submit]:hover {
+        background-color: #2e2e2e;
+        color: #fff;
+    }
+    form#login a#registerBtn {
+        color: #553752;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+        text-decoration: none;
+    }
+    form#login a#registerBtn:hover {
+        color: #EA4029;
+    }
+
+    div#logout {
+        position: absolute;
+        right: 20px;
+        top: 80px;
+        width: 100%;
+        max-width: 240px;
+        background-color: #fff;
+        padding: 10px;
+    }
+
+    div#logout p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+        color: #EA4029;
+    }
+
+    div#logout p a {
+        display: inline-block;
+        width: 100%;
+        max-width: 80px;
+        height: 20px;
+        background-color: #5A3852;
+        font-size: 0.8em;
+        line-height: 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        margin-left: 5px;
+    }
+
+    div#logout p a:hover {
+        background-color: #C8400B;
+    }
+
+    .bg-color {
+        background-color: #E8DDD5;
+    }
+    #cmsInfo {
+        float: left;
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        background-color: #fff;
+        padding: 15px;
+        margin: 20px;
+    }
+
+    #cmsInfo h1 {
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        font-size: 1.2em;
+        font-weight: bold;
+        line-height: 1.8;
+        color: #553752;
+    }
+
+    #cmsInfo p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+        line-height: 1.5;
+        color: #553752;
+    }
+    /* DATA ENTRY CSS */
+    #commentForm {
+        float:left;
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        background-color: #fff;
+        padding: 15px;
+        margin: 20px;
+    }
+    form#commentForm fieldset { 
+        border: 1px solid #C8400B;
+        padding: 15px;
+    }
+    form#commentForm legend {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+        color: #C8400B;
+        padding: 0 5px;
+    }
+    form#commentForm label {
+        float: left;
+        display: block;
+        width: 100%;
+        max-width: 140px;
+        height: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+        line-height: 30px;
+        color: #C8400B;
+        text-align: left;
+        padding: 0;
+    }
+    form#commentForm input {
+        clear: right;
+        display: block;
+        width: 100%;
+        max-width: 360px;
+        height: 30px;
+        border: 1px solid #C8400B;
+        outline: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+        color: #2e2e2e;
+        padding: 0 5px;
+        margin-bottom: 10px;
+    }
+    form#commentForm label.textBox {
+        clear: both;
+        text-align: left;
+        font-size: 1.2em;
+        padding: 0;
+        margin-top: 20px;
+    }
+    form#commentForm textarea {
+        resize: none;
+        border: 1px solid #C8400B;
+        outline: none;
+        clear: both;
+        display: block;
+        width: 100%;
+        max-width: 360px;
+        height: 250px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+        line-height: 1.5;
+        color: #2e2e2e;
+        padding: 10px;
+    }
+    form#commentForm input[type=submit] {
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+        -moz-box-shadow: 2px 2px 3px rgba(46, 46, 46, 0.4);
+        -webkit-box-shadow: 2px 2px 3px rgba(46, 46, 46, 0.4);
+        box-shadow: 2px 2px 3px rgba(46, 46, 46, 0.4);
+        outline: none;
+        border: none;
+        float: right;
+        display: block;
+        width: 100%;
+        max-width: 120px;
+        height: 40px;
+        cursor: pointer;
+        background-color: #C8400B;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+        color: #fff;
+        text-transform: capitalize;
+        margin-top: 20px;
+    }
+    form#commentForm input[type=submit]:hover {
+        background-color: #553752;
+        color: #fff;
+    }
+    /* CMS  BLOG CSS */
+    div#articles {
+        float: left;
+        display: block;
+        width: 100%;
+        max-width: 720px;
+        height: auto;
+        background-color: #D8401D;
+        padding: 5px 20px;
+        margin: 20px;
+    }
+    div#articles .article {
+        position: relative;
+        display: block;
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+        background-color: #fff;
+        padding: 30px 20px;
+        margin: 20px auto;
+    }
+    div#articles .article h2 {
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        font-size: 1.8em;
+        line-height: 1.0;
+        color: #553752;
+    }
+    div#articles .article span {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        font-size:0.8em;
+        font-style: italic;
+        font-weight: bold;
+        color: #553752;
+    }
+    div#articles .article a {
+        position: absolute;
+        top: 25px;
+        right: 20px;
+        display: block;
+        width: 100%;
+        max-width: 80px;
+        height: 25px;
+        background-color: lightgray;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+        line-height: 25px;
+        color: #553752;
+        text-align: center;
+        text-decoration: none;
+    }
+    div#articles .article a:hover {
+        background-color: #553752;
+        color: #fff;
+    }
+    div#articles .article p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+        line-height: 1.5;
+        color: #553752;
+    }
+    /* Form CSS */
+    .form-bg {
+        height: auto;
+        padding: 20px;
+    }
+    form#register {
+        position: relative;
+        display: block;
+        width: 100%;
+        max-width: 370px;
+        height: 230px;
+        background-color: #EA4029;
+        padding: 20px;
+        margin: 10px auto;
+    }
+    form#register h1 {
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        font-size: 1.8em;
+        color: #fff;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    form#register label {
+        float: left;
+        display: block;        
+        width: 100%;
+        max-width: 120px;
+        line-height: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+        line-height: 30px;
+        color: #fff;
+        padding: 0 5px;
+    }
+    form#register input {
+        clear: right;
+        display: block;
+        width: 100%;
+        max-width: 200px;
+        height: 30px;
+        outline: none;
+        border: none;
+        background-color: #fdedec;
+        padding: 0 5px;
+        margin-bottom: 10px;
+    }
+    form#register input[type=submit] {
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+        -moz-box-shadow: 2px 2px 3px rgba(46, 46, 46, 0.4);
+        -webkit-box-shadow: 2px 2px 3px rgba(46, 46, 46, 0.4);
+        box-shadow: 2px 2px 3px rgba(46, 46, 46, 0.4);
+        outline: none;
+        border: none;
+        float: right;
+        display: inline-block;
+        width: 100%;
+        max-width: 80px;
+        height: 30px;
+        cursor: pointer;
+        background-color: #5A3852;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+        color: #fff;
+        text-transform: capitalize;   
+        margin-right: 10px;
+    }
+    form#register input[type=submit]:hover {
+        background-color: #138d75;
+    }
+}
+
